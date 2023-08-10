@@ -1,4 +1,4 @@
-import {Alert, Button, StyleSheet, Text, TextInput, View, ScrollView} from 'react-native';
+import {Alert, Button, StyleSheet, Text, TextInput, View, ScrollView, FlatList} from 'react-native';
 import {useState} from "react";
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
         // recommended way to update state
         setGoals((currentGoals) => [
             ...currentGoals,
-            enteredGoalText
+            {text: enteredGoalText, id: Math.random().toString()}
         ]);
     }
 
@@ -28,13 +28,19 @@ export default function App() {
             </View>
             <View style={styles.goalsContainer}>
                 <Text>List of goals...</Text>
-                <ScrollView>
-                    { goals.map((goal) =>
-                        <View key={ goal } style={styles.goalItem}>
-                            <Text style={styles.goalText}> { goal }</Text>
-                        </View>
-                    )}
-                </ScrollView>
+                <FlatList data={goals}
+                          renderItem={
+                            (itemData) => {
+                                return (
+                                    <View  style={styles.goalItem}>
+                                        <Text style={styles.goalText}> { itemData.item.text }</Text>
+                                    </View>
+                                )
+                            }
+                          }
+                          keyExtractor={(item, index) => {
+                              return item.id
+                          }}  />
             </View>
         </View>
     );
