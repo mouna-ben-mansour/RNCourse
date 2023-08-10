@@ -3,30 +3,12 @@ import {Alert, Button, StyleSheet, Text, TextInput, View} from 'react-native';
 export default function App() {
     return (
         <View style={styles.container}>
-            <View style={{
-                flex: 1,
-                backgroundColor: 'red',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}>
-                <Text>1</Text>
+            <View style={styles.inputContainer}>
+                <TextInput style={styles.textInput} placeholder='Your course goal!'/>
+                <Button title="Add Goal"/>
             </View>
-
-            <View style={{
-                flex: 2,
-                backgroundColor: 'darkorange',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}>
-                <Text>2</Text>
-            </View>
-            <View style={{
-                flex: 3,
-                backgroundColor: 'green',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}>
-                <Text>3</Text>
+            <View style={styles.golasContainer}>
+                <Text>List of goals...</Text>
             </View>
         </View>
     );
@@ -34,12 +16,28 @@ export default function App() {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
-        padding: 50,
-        width: '80%',
-        height: 300,
-        justifyContent:'space-between',
-        alignItems:'center'
+        flex: 1,
+        paddingTop: 50,
+        paddingHorizontal: 16
     },
+    inputContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 25,
+        borderBottomWidth: 1,
+        borderBottomColor: 'green'
+    },
+    textInput: {
+        borderWidth: 1,
+        borderColor: '#ccc',
+        width: '70%',
+        paddingLeft: 20,
+        marginRight: 8
+    },
+    golasContainer: {
+        flex: 5
+    }
 
 });
