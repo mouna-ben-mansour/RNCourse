@@ -1,6 +1,6 @@
 #  React Native course
 
-Learn react native.
+Learn react native course.
 
 ## Available Scripts
 
