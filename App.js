@@ -3,13 +3,30 @@ import {Alert, Button, StyleSheet, Text, TextInput, View} from 'react-native';
 export default function App() {
     return (
         <View style={styles.container}>
-            <View style={styles.inputContainer}>
-                <TextInput style={styles.textInput} placeholder='Your course goal!'/>
-                <Button title="Add Goal"/>
+            <View style={{
+                flex: 1,
+                backgroundColor: 'red',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}>
+                <Text>1</Text>
             </View>
-            <View style={styles.separator} ></View>
-            <View >
-                <Text>List of goals...</Text>
+
+            <View style={{
+                flex: 2,
+                backgroundColor: 'darkorange',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}>
+                <Text>2</Text>
+            </View>
+            <View style={{
+                flex: 3,
+                backgroundColor: 'green',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}>
+                <Text>3</Text>
             </View>
         </View>
     );
@@ -17,23 +34,12 @@ export default function App() {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 50
-    },
-    separator: {
-        marginVertical: 8,
-        borderBottomColor: '#737373',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-    },
-    inputContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    textInput: {
-        borderWidth: 1,
-        borderColor: '#ccc',
+        padding: 50,
         width: '80%',
-        paddingLeft: 20,
-        marginRight: 8
-    }
+        height: 300,
+        justifyContent:'space-between',
+        alignItems:'center'
+    },
 
 });
