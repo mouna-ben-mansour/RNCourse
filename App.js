@@ -1,4 +1,4 @@
-import {Alert, Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Alert, Button, StyleSheet, Text, TextInput, View, ScrollView} from 'react-native';
 import {useState} from "react";
 
 export default function App() {
@@ -28,11 +28,13 @@ export default function App() {
             </View>
             <View style={styles.goalsContainer}>
                 <Text>List of goals...</Text>
-                { goals.map((goal) =>
-                    <View key={ goal } style={styles.goalItem}>
+                <ScrollView>
+                    { goals.map((goal) =>
+                        <View key={ goal } style={styles.goalItem}>
                             <Text style={styles.goalText}> { goal }</Text>
-                    </View>
-                )}
+                        </View>
+                    )}
+                </ScrollView>
             </View>
         </View>
     );
