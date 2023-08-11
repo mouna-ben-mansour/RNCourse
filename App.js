@@ -5,6 +5,7 @@ import GoalInput from "./components/GoalInput";
 
 export default function App() {
     const [goals, setGoals] = useState([]);
+    const [isVisible, setIsVisible] = useState(false);
 
     function addGoalHandler(enteredGoalText) {
         // recommended way to update state
@@ -12,6 +13,7 @@ export default function App() {
             ...currentGoals,
             {text: enteredGoalText, id: Math.random().toString()}
         ]);
+        hideGoalHandler();
     }
 
     function deleteGoalHandle(id){
@@ -20,9 +22,18 @@ export default function App() {
         });
     }
 
+    function startAddGoalHandler(){
+        setIsVisible(true);
+    }
+
+    function hideGoalHandler(){
+        setIsVisible(false);
+    }
+
     return (
         <View style={styles.container}>
-            <GoalInput onAddGoalHandler={addGoalHandler}/>
+            <Button title="Add New Goal" color="#73d3ea" onPress={startAddGoalHandler}/>
+            <GoalInput onAddGoalHandler={addGoalHandler} visible={isVisible} onHide={hideGoalHandler}/>
             <View style={styles.goalsContainer}>
                 <Text>List of goals...</Text>
                 <FlatList data={goals}
