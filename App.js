@@ -1,4 +1,5 @@
 import { Button, StyleSheet, Text, TextInput, View,  FlatList} from 'react-native';
+import {StatusBar} from "expo-status-bar";
 import {useState} from "react";
 import GoalItem from "./components/GoalItem";
 import GoalInput from "./components/GoalInput";
@@ -31,6 +32,8 @@ export default function App() {
     }
 
     return (
+        <>
+        <StatusBar style="auto"/>
         <View style={styles.container}>
             <Button title="Add New Goal" color="#73d3ea" onPress={startAddGoalHandler}/>
             <GoalInput onAddGoalHandler={addGoalHandler} visible={isVisible} onHide={hideGoalHandler}/>
@@ -47,6 +50,7 @@ export default function App() {
                           }}  />
             </View>
         </View>
+        </>
     );
 }
 
