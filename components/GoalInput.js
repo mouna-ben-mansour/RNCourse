@@ -1,4 +1,4 @@
-import {Button, StyleSheet, TextInput, View, Modal} from "react-native";
+import {Button, StyleSheet, TextInput, View, Modal, Image} from "react-native";
 import {useState} from "react";
 
 function GoalInput(props) {
@@ -13,6 +13,7 @@ function GoalInput(props) {
         <Modal visible={props.visible} animationType="slide">
             <View style={styles.inputContainer}>
                 <View style={styles.modalView}>
+                    <Image source={require('../assets/images/goal.png')} style={styles.image}/>
                 <TextInput
                     style={styles.textInput}
                     placeholder='Your course goal!'
@@ -20,11 +21,11 @@ function GoalInput(props) {
                     value={enteredGoalText}
                 />
                 <View style={styles.buttonContainer}>
-                <Button title="Add Goal" onPress={()=> {
-                    props.onAddGoalHandler(enteredGoalText);
-                    setEnteredGoalText('')
-                }}/>
-                <Button title="Hide" onPress={props.onHide}/>
+                    <Button title="Add Goal" onPress={()=> {
+                        props.onAddGoalHandler(enteredGoalText);
+                        setEnteredGoalText('')
+                    }} color='#345ce5' />
+                    <Button title="Hide" onPress={props.onHide} color='red'/>
                 </View>
                 </View>
             </View>
@@ -39,6 +40,8 @@ const styles = StyleSheet.create({
         borderColor: '#ccc',
         width: '80%',
         padding: 10,
+        color: 'white',
+        backgroundColor: '#899fea'
 
     },
     inputContainer: {
@@ -47,9 +50,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     modalView: {
+        backgroundColor: '#6784e7',
         flexDirection: 'column',
         gap: 15,
-        backgroundColor: 'white',
         borderRadius: 20,
         padding: 50,
         alignItems: 'center',
@@ -65,6 +68,11 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flexDirection: 'row',
         gap: 5
+    },
+    image: {
+        width: 100,
+        height: 100,
+        margin: 20
     }
 
 });
